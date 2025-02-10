@@ -28,6 +28,7 @@ pandoc = "^2.4"
 pypandoc = "^1.15"
 pdfplumber = "^0.11.5"
 openpyxl = "^3.1.5"
+markitdown = "^0.0.1a3"
 
 [tool.poetry.group.test.dependencies]  # https://python-poetry.org/docs/master/managing-dependencies/
 commitizen = ">=3.21.3"
