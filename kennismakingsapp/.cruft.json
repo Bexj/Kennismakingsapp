@@ -1,0 +1,30 @@
+{
+  "template": "https://github.com/UCLL-DataFocus/genaistudio-cookiecutter",
+  "commit": "1fc045c4770e68f0548fe0b54c38a5d8e76ec55b",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_type": "app",
+      "project_name": "Kennismakingsapp",
+      "project_description": "Kennismakingsapp stage GPT Academy",
+      "project_url": "https://github.com/Bexj/Kennismakingsapp",
+      "author_name": "Joren Bex",
+      "author_email": "joren.bex@student.ucll.be",
+      "python_version": "3.12",
+      "development_environment": "simple",
+      "with_conventional_commits": "1",
+      "with_fastapi_api": "0",
+      "with_typer_cli": "0",
+      "continuous_integration": "GitHub",
+      "private_package_repository_name": "",
+      "private_package_repository_url": "",
+      "__docker_image": "python:$PYTHON_VERSION-slim",
+      "__docstring_style": "NumPy",
+      "__project_name_kebab_case": "kennismakingsapp",
+      "__project_name_snake_case": "kennismakingsapp",
+      "_template": "https://github.com/UCLL-DataFocus/genaistudio-cookiecutter",
+      "_commit": "1fc045c4770e68f0548fe0b54c38a5d8e76ec55b"
+    }
+  },
+  "directory": null
+}
