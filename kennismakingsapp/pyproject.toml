@@ -24,6 +24,10 @@ openai = "^1.61.1"
 python-dotenv = "^1.0.1"
 langchain = "^0.3.18"
 langchain-openai = "^0.3.4"
+pandoc = "^2.4"
+pypandoc = "^1.15"
+pdfplumber = "^0.11.5"
+openpyxl = "^3.1.5"
 
 [tool.poetry.group.test.dependencies]  # https://python-poetry.org/docs/master/managing-dependencies/
 commitizen = ">=3.21.3"
