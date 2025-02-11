@@ -1,5 +1,4 @@
 import streamlit as st
-from src.kennismakingsapp.utils.styles import load_css
 from src.kennismakingsapp.pages.aboutme_ui import aboutme_page
 from src.kennismakingsapp.pages.document_ui import document_page
 from src.kennismakingsapp.pages.chat_ui import chat_page
