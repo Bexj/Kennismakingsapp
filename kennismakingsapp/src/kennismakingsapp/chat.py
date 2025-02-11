@@ -1,5 +1,7 @@
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBufferMemory
+from langchain.prompts import PromptTemplate
 from langchain_openai import AzureChatOpenAI
-from langchain.schema import HumanMessage, SystemMessage
 from src.kennismakingsapp.document_loader import load_joren_documents
 from src.kennismakingsapp.config import (
     AZURE_OPENAI_API_KEY,
@@ -16,18 +18,36 @@ llm = AzureChatOpenAI(
     api_version=AZURE_OPENAI_API_VERSION,
 )
 
+# Load Joren's documents as extra knowledge
 JOREN_DOCUMENT_KNOWLEDGE = load_joren_documents()
 
+# Define the conversation prompt template (ONLY expects "input" since chat_history is auto-managed)
+prompt_template = """
+You are a chatbot trained to help users get to know Joren.
+Joren is a student in Applied Computer Science specializing in AI & Data at UCLL Leuven.
+They have a passion for data engineering, AI integration in business, and building intelligent applications.
+He works in the warehouse of Aldi at night on weekends, and it is very intensive labor.
+
+Here is additional information:
+{knowledge}
+
+{chat_history}
+
+User: {input}
+AI:"""
+
+# Set up conversation memory
+conversation_memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+
+# Use ConversationChain (it only accepts "input", memory handles "chat_history")
+conversation = ConversationChain(
+    llm=llm,
+    memory=conversation_memory,
+    prompt=PromptTemplate(input_variables=["input"], template=prompt_template.format(knowledge=JOREN_DOCUMENT_KNOWLEDGE, chat_history="{chat_history}", input="{input}")),
+    verbose=False,
+)
+
 def chat_with_gpt(user_input: str) -> str:
-    """Sends a user message to Azure OpenAI and returns the response."""
-    messages = [
-        SystemMessage(content="You are a chatbot trained to help users get to know Joren. Here is some information about Joren: "
-                              "Joren is a student in Applied Computer Science specializing in AI & Data at UCLL Leuven. "
-                              "They have a passion for data engineering, AI integration in business, and building intelligent applications. "
-                              "He works in the warehouse of Aldi at night in the weekends, it is very intensive labor"
-                              f"here is information about Joren: {JOREN_DOCUMENT_KNOWLEDGE}"
-                            ),
-        HumanMessage(content=user_input)
-    ]
-    response = llm.invoke(messages)
-    return response.content
+    """Sends user input to Azure OpenAI while maintaining conversation history."""
+    response = conversation.predict(input=user_input)
+    return response

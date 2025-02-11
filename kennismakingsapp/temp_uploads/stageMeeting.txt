@@ -1,0 +1,25 @@
+functies bijschrijven in utils streamlit
+
+streamlit omzetten naar API's (streamlit niet genoeg customisation) op lange termijn in javascript frontend zetten
+
+look and feel van ucll in UI krijgen
+keycloak authenticatie gebruiken
+zorgen dat je kan inloggen met keycloak
+
+poetry gebruiken ipv pip
+cookiecutter ipv github templates
+
+precommit bv checken op API keys in code voor commit
+
+testen of cookiecutter de moeite is
+
+in steamlit template zorgen dat je met elk soort input (bv excel, pdf,...) kan werken bv pandoc of markitdown
+experimenteren welke meest user friendly is
+
+app maken die zij kunnen gebruiken, op basis van app ons beter leren kennen, interactieve genAI app maken(chatGPT)
+
+langchain, poetry, cookiecutter bekijken.
+
+superlinear-ai/poetry-cookiecutter
+
+moderne techstack zoveel mogelijk gebruiken zolang het handig is, niet te complex

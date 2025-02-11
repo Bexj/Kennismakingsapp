@@ -1,0 +1,50 @@
+/* Remove extra padding/margin at the top */
+.block-container {
+  padding-top: 0px !important;
+}
+
+/* Remove empty header space */
+header {
+  visibility: hidden;
+}
+
+/* Chat layout improvements */
+.chat-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column-reverse; /* New messages at bottom */
+}
+
+.chat-message {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  max-width: 75%;
+}
+
+.chat-user {
+  background-color: #0078FF;
+  color: white;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+  border-radius: 15px;
+}
+
+.chat-ai {
+  background-color: #E5E5EA;
+  color: black;
+  align-self: flex-start;
+  text-align: left;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+.chat-input-container {
+  margin-top: 10px;
+}
