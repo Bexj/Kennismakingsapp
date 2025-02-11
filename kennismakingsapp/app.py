@@ -6,8 +6,6 @@ from src.kennismakingsapp.pages.chat_ui import chat_page
 
 st.set_page_config(page_title="Kennismakingsapp", page_icon="📄", layout="wide")
 
-load_css()
-
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to:", ["Chat with AI", "Upload Documents", "About Me"])
 
