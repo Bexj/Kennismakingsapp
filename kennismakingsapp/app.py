@@ -3,8 +3,6 @@ from src.kennismakingsapp.utils.styles import load_css
 from src.kennismakingsapp.pages.aboutme_ui import aboutme_page
 from src.kennismakingsapp.pages.document_ui import document_page
 from src.kennismakingsapp.pages.chat_ui import chat_page
-from src.kennismakingsapp.document_loader import convert_to_text, save_uploaded_file
-from src.kennismakingsapp.chat import chat_with_gpt
 
 st.set_page_config(page_title="Kennismakingsapp", page_icon="📄", layout="wide")
 

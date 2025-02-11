@@ -10,7 +10,6 @@ from src.kennismakingsapp.config import (
     AZURE_OPENAI_API_VERSION,
 )
 
-# Initialize LangChain Azure OpenAI model
 llm = AzureChatOpenAI(
     azure_endpoint=AZURE_OPENAI_ENDPOINT,
     api_key=AZURE_OPENAI_API_KEY,
@@ -18,10 +17,8 @@ llm = AzureChatOpenAI(
     api_version=AZURE_OPENAI_API_VERSION,
 )
 
-# Load Joren's documents as extra knowledge
 JOREN_DOCUMENT_KNOWLEDGE = load_joren_documents()
 
-# Define the conversation prompt template (ONLY expects "input" since chat_history is auto-managed)
 prompt_template = """
 You are a chatbot trained to help users get to know Joren.
 Joren is a student in Applied Computer Science specializing in AI & Data at UCLL Leuven.
@@ -36,10 +33,8 @@ Here is additional information:
 User: {input}
 AI:"""
 
-# Set up conversation memory
 conversation_memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
-# Use ConversationChain (it only accepts "input", memory handles "chat_history")
 conversation = ConversationChain(
     llm=llm,
     memory=conversation_memory,

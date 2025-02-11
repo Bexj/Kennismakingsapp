@@ -1,6 +1,5 @@
 import os
 import streamlit as st
-import pdfplumber
 import pandas as pd
 from markitdown import MarkItDown
 
